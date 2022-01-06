@@ -1,0 +1,21 @@
+{
+  "name": "kagatan/mb-db",
+  "description": "MikBill Billing DB layer",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "kagatan",
+      "email": "stupakovmax@gmail.com"
+    }
+  ],
+  "require": {
+    "illuminate/database": "^8.64"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kagatan\\BillingMikbillDB\\": "src/"
+    }
+  }
+}
+
