@@ -5,7 +5,12 @@
 
 Устанвливаем пакеты и зависимости
 ```shell script
-git clone https://github.com/kagatan/mb-db.git
-cd mb-db
-composer install
+composer require kagatan/mb-db
 ```
+или dev 
+```shell script
+composer require kagatan/mb-db:dev-main
+```
+
+
+
