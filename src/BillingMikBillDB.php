@@ -1,6 +1,6 @@
 <?php
 
-namespace Kagatan\BillingMikBillDB;
+namespace Kagatan\MikBillDB;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
