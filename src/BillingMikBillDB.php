@@ -555,10 +555,10 @@ class BillingMikBillDB
             ->limit(1)
             ->first();
 
-        if (!empty($result['sectorid'])) {
+        if (!empty($result->sectorid)) {
 
             Capsule::table("sectorspool")
-                ->where("sectorid", "=", $result['sectorid'])
+                ->where("sectorid", "=", $result->sectorid)
                 ->where("ip", "=", $result->ip)
                 ->delete();
 
