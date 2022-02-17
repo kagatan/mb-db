@@ -507,7 +507,7 @@ class BillingMikBillDB
     }
 
 
-    public function addUser($userData)
+    public function addUser($userData, $table = "users")
     {
         $userData = self::convertICONV($userData, "UTF-8", "KOI8-U//IGNORE");
 
@@ -519,7 +519,7 @@ class BillingMikBillDB
             $userData['framed_ip'] = $this->getFramedIPByLocalAndNET_VPN($userData['local_ip'], $this->_system_options["NET_VPN"]);
         }
 
-        Capsule::table('users')->insert($userData);
+        Capsule::table($table)->insert($userData);
 
         return Capsule::connection()->getPdo()->lastInsertId();
     }
