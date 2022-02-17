@@ -547,6 +547,27 @@ class BillingMikBillDB
     }
 
 
+    public function getSectorFromIp($ip)
+    {
+        $result = Capsule::table("sectorspool")
+            ->where("ip", "=", $ip)
+            ->orderBy("ip2long", 'ASC')
+            ->limit(1)
+            ->first();
+
+        if (!empty($result['sectorid'])) {
+
+            Capsule::table("sectorspool")
+                ->where("sectorid", "=", $result['sectorid'])
+                ->where("ip", "=", $result->ip)
+                ->delete();
+
+            return $result->sectorid;
+        }
+
+        return false;
+    }
+
     private function getFirstIpFromSector($sectorid)
     {
         $result = Capsule::table("sectorspool")
