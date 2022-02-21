@@ -635,10 +635,7 @@ class BillingMikBillDB
                 ->where("key", $key)
                 ->delete();
 
-
-
             Capsule::table("users_custom_fields")->insert($insertData);
-
         }
 
         return true;
