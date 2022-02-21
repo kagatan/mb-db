@@ -628,12 +628,14 @@ class BillingMikBillDB
                     "key"   => $key,
                     "value" => $value
                 ];
+
+                Capsule::table("users_custom_fields")
+                    ->where("uid", $uid)
+                    ->where("key", $key)
+                    ->delete();
             }
 
-            Capsule::table("users_custom_fields")
-                ->where("uid", $uid)
-                ->where("key", $key)
-                ->delete();
+
 
             Capsule::table("users_custom_fields")->insert($insertData);
         }
