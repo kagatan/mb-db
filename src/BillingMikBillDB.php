@@ -640,10 +640,10 @@ class BillingMikBillDB
 
     public function setUserGroupId($uid, $usersgroupid)
     {
-//        DB::table("usersgroups_users")
-//            ->where("uid", $uid)
-//            ->where("usersgroupid", $usersgroupid)
-//            ->delete();
+        Capsule::table("usersgroups_users")
+            ->where("uid", $uid)
+            ->where("usersgroupid", $usersgroupid)
+            ->delete();
 
         Capsule::table("usersgroups_users")->insert([
             "uid"          => $uid,
