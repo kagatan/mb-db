@@ -630,6 +630,13 @@ class BillingMikBillDB
                 ];
             }
 
+            Capsule::table("users_custom_fields")
+                ->where("uid", $uid)
+                ->where("key", $key)
+                ->delete();
+
+
+
             Capsule::table("users_custom_fields")->insert($insertData);
 
         }
