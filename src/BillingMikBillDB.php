@@ -432,6 +432,12 @@ class BillingMikBillDB
         return;
     }
 
+    public function addVouchers($vouchersData)
+    {
+        Capsule::table('mod_cards_cards')->insert($vouchersData);
+        return;
+    }
+
     public function addUserDevice($uid, $userDeviceData)
     {
         Capsule::table('dev_user')->insert([
