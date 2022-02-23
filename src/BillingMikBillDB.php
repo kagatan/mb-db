@@ -285,6 +285,17 @@ class BillingMikBillDB
         return $address[$settlementName]["lanes"][$laneName]["houses"][$house]["houseid"];
     }
 
+
+
+
+    public function deleteSettlement($settlementID)
+    {
+        Capsule::table("lanes_settlements")
+            ->where("settlementid", $settlementID)
+            ->delete();
+    }
+
+
     public function addSettlement($settlementData)
     {
         $settlementData = self::convertICONV($settlementData, "UTF-8", "KOI8-U//IGNORE");
