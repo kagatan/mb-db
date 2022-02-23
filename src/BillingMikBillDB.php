@@ -338,7 +338,8 @@ class BillingMikBillDB
             ->where('lanes_houses.houseid', '=', $houseId)
             ->first();
 
-        return self::convertICONV(self::toArray($result));
+
+        return self::convertICONV((array)$result);
     }
 
 
