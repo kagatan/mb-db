@@ -350,6 +350,15 @@ class BillingMikBillDB
     }
 
 
+    public function editLane($laneID, $laneData)
+    {
+        $laneData = self::convertICONV($laneData, "UTF-8", "KOI8-U//IGNORE");
+
+        Capsule::table('lanes')
+            ->where("laneid", "=", $laneID)
+            ->update($laneData);
+    }
+
     public function addLane($laneData)
     {
         $laneData = self::convertICONV($laneData, "UTF-8", "KOI8-U//IGNORE");
