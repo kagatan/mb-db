@@ -335,7 +335,7 @@ class BillingMikBillDB
             ->select('lanes_houses.*', 'lanes.lane', 'lanes_settlements.settlementname')
             ->leftJoin('lanes', 'lanes.laneid', '=', 'lanes_houses.laneid')
             ->leftJoin('lanes_settlements', 'lanes.settlementid', '=', 'lanes_settlements.settlementid')
-            ->where('lanes_houses', '=', $houseId)
+            ->where('lanes_houses.houseid', '=', $houseId)
             ->first();
 
         return self::convertICONV(self::toArray($result));
