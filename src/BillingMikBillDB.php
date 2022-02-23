@@ -286,12 +286,10 @@ class BillingMikBillDB
     }
 
 
-
-
     public function deleteSettlement($settlementID)
     {
         Capsule::table("lanes_settlements")
-            ->where("settlementid", $settlementID)
+            ->where("settlementid", "=", $settlementID)
             ->delete();
     }
 
@@ -360,6 +358,13 @@ class BillingMikBillDB
         return self::convertICONV(self::toArray($result));
     }
 
+
+    public function deleteLane($laneID)
+    {
+        Capsule::table("lanes")
+            ->where("laneid", "=", $laneID)
+            ->delete();
+    }
 
     public function editLane($laneID, $laneData)
     {
