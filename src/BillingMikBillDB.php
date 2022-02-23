@@ -329,6 +329,19 @@ class BillingMikBillDB
     }
 
 
+    public function getHouse($houseId)
+    {
+        $result = Capsule::table('lanes_houses')
+            ->select('lanes_houses.*', 'lanes.lane', 'lanes_settlements.settlementname')
+            ->leftJoin('lanes', 'lanes.laneid', '=', 'lanes_houses.laneid')
+            ->leftJoin('lanes_settlements', 'lanes.settlementid', '=', 'lanes_settlements.settlementid')
+            ->where('lanes_houses', '=', $houseId)
+            ->first();
+
+        return self::convertICONV(self::toArray($result));
+    }
+
+
     public function addHouse($houseData)
     {
         $houseData = self::convertICONV($houseData, "UTF-8", "KOI8-U//IGNORE");
