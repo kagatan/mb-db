@@ -438,12 +438,20 @@ class BillingMikBillDB
         return Capsule::connection()->getPdo()->lastInsertId();
     }
 
+    public function getStuffPersonals()
+    {
+        $result = Capsule::table('stuff_personal')->select()->get();
+
+        return self::convertICONV(self::toArray($result));
+    }
+
     public function getDeviceTypes()
     {
         $result = Capsule::table('dev_types')->select()->get();
 
         return self::convertICONV(self::toArray($result));
     }
+
 
     public function addDeviceType($deviceTypeData)
     {
